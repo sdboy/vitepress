@@ -34,3 +34,15 @@ Thumbs.db
 *.bak
 *.tem
 *.temp
+
+.vscode/
+.vscode-test/
+.vscode-insiders/
+.vscode-exploration/
+.vscode-remote/
+.vscode-web/
+.vscode-test-web/
+.vscode-test-exploration/
+.vscode-test-insiders/
+.vscode-test-stable/
+.vscode-insiders-test/
