@@ -11,6 +11,9 @@ hero:
     - theme: brand
       text: VitePress
       link: /vitepress/VitePress搭建
+    - theme: alt
+      text: Angualr
+      link: /Angular/Angular Component
 
 features:
   - title: Feature A

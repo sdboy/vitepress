@@ -56,6 +56,7 @@ export default defineConfig({
   lastUpdated: true,
   
   themeConfig: {
+    logo: '/logo.svg',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
