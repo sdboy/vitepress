@@ -4,20 +4,11 @@ lang: zh-CN
 layout: home
 
 hero:
-  name: "blog"
-  text: "A blog site"
-  tagline: My great project tagline
+  name: "Ray的小站"
+  # text: "随笔记录"
+  tagline: 随笔记录
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-    - theme: alt
-      text: API Examples
-      link: /vitepress/example
-    - theme: alt
       text: VitePress
       link: /vitepress/VitePress搭建
 

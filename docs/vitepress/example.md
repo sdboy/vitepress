@@ -14,16 +14,16 @@ layout: doc
 navbar: true
 sidebar: true
 aside: true
-outline: 2
+outline: deep
 lastUpdated: Date
 editLink: false
 footer: true
 prev:
   text: 'Markdown'
-  link: '/api-examples'
+  link: '/vitepress/VitePress搭建'
 next:
   text: 'Markdown'
-  link: '/markdown-examples'
+  link: '/vitepress/VitePress搭建'
 ---
 # example
 first 例子 test

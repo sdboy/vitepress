@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,7 +10,7 @@ export default defineConfig({
     }
   },
   lang: 'zh-CN',
-  title: "blog",
+  title: "EUQI",
   titleTemplate: ':title - Ray\'s blog',
   description: "A blog site",
   base: '/vitepress/',
@@ -53,27 +54,43 @@ export default defineConfig({
   outDir: '../vitepress',
   ignoreDeadLinks: true,
   lastUpdated: true,
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '主页', link: '/' },
+      // { text: 'Examples', link: '/markdown-examples' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'Vitepress Example', link: '/vitepress/example' },
-          { text: 'Vitepress 搭建', link: '/vitepress/VitePress搭建' }
-        ]
-      }
-    ],
+    // sidebar: [
+    //   {
+    //     text: 'VitePress',
+    //     items: [
+    //       { text: 'Vitepress 搭建', link: '/vitepress/VitePress搭建' },
+    //       { text: '模版', link: '/vitepress/example' }
+    //     ]
+    //   }
+    // ],
+
+    sidebar: generateSidebar({
+      // 侧边栏的根目录，默认为docs
+      documentRootPath: "/docs",
+      // 使用h1的标题作为侧边栏的标题
+      useTitleFromFileHeading: true,
+      // 使用文件夹的index.md
+      useFolderTitleFromIndexFile: true,
+      // 指向文件夹的链接
+      useFolderLinkFromIndexFile: true,
+      // 根据md文件的order进行排序
+      sortMenusByFrontmatterOrder: true,
+      // 排序之后将不是文件夹的放后面
+      sortFolderTo: "top",
+      // 菜单展开功能
+      collapsed: false,
+    }),
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/sdboy' }
     ],
 
     lastUpdated: {
@@ -85,8 +102,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
-      copyright: 'Copyright © 2019-present <a href="https://github.com/yyx990803">Evan You</a>'
+      message: '基于CC-BY-SA-3.0协议进行许可',
+      copyright: 'Copyright © 2022-2025 Ray'
     },
 
     search: {

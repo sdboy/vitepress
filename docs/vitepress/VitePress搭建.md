@@ -1,14 +1,29 @@
 ---
-title: VitePress搭建
-date: 2025-05-04 03:52:20
-tags:
-- vue 
-- vite
-- vitepress
-categories:
-- vite
-author: Ray
-from: https://vitepress.dev/zh/guide/getting-started
+lang: zh-CN
+title: VitePress
+titleTemplate: Vite & Vue powered static site generator
+description: VitePress
+head:
+  - - meta
+    - name: description
+      content: hello
+  - - meta
+    - name: keywords
+      content: super duper SEO
+layout: doc
+navbar: true
+sidebar: true
+aside: true
+outline: deep
+lastUpdated: Date
+editLink: false
+footer: true
+prev:
+  text: 'Markdown'
+  link: '/vitepress/VitePress搭建'
+next:
+  text: 'Markdown'
+  link: '/vitepress/VitePress搭建'
 ---
 # VitePress个人文档服务搭建
 
