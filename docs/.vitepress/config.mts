@@ -18,7 +18,7 @@ export default defineConfig({
   titleTemplate: ':title - Ray\'s blog',
   description: "A blog site",
   head: [
-    ['link', { rel: 'icon', href: '/public/favicon.png' }],
+    ['link', { rel: 'icon', href: '/favicon.png' }],
     [
       'link',
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
@@ -70,7 +70,8 @@ export default defineConfig({
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'Vitepress Example', link: '/vitepress/example' }
+          { text: 'Vitepress Example', link: '/vitepress/example' },
+          { text: 'Vitepress 搭建', link: '/vitepress/VitePress搭建' }
         ]
       }
     ],

@@ -16,6 +16,9 @@ hero:
     - theme: alt
       text: API Examples
       link: /vitepress/example
+    - theme: alt
+      text: VitePress
+      link: /vitepress/VitePress搭建
 
 features:
   - title: Feature A
