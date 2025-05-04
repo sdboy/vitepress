@@ -55,7 +55,7 @@ export default defineConfig({
     ]
   ],
   srcExclude: ['**/README.md', '**/TODO.md'],
-  outDir: '../public',
+  outDir: '../vitepress',
   ignoreDeadLinks: true,
   lastUpdated: true,
   themeConfig: {
