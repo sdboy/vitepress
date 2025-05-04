@@ -19,7 +19,7 @@ export default defineConfig({
   description: "A blog site",
   base: '/vitepress/',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.png' }],
+    ['link', { rel: 'icon', href: '/vitepress/favicon.png' }],
     [
       'link',
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
@@ -61,18 +61,18 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Home', link: '/vitepress' },
+      { text: 'Examples', link: '/vitepress/markdown-examples' }
     ],
 
     sidebar: [
       {
         text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'Vitepress Example', link: '/vitepress/example' },
-          { text: 'Vitepress 搭建', link: '/vitepress/VitePress搭建' }
+          { text: 'Markdown Examples', link: '/vitepress/markdown-examples' },
+          { text: 'Runtime API Examples', link: '/vitepress/api-examples' },
+          { text: 'Vitepress Example', link: '/vitepress/vitepress/example' },
+          { text: 'Vitepress 搭建', link: '/vitepress/vitepress/VitePress搭建' }
         ]
       }
     ],

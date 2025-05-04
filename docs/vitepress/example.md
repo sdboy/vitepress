@@ -20,10 +20,10 @@ editLink: false
 footer: true
 prev:
   text: 'Markdown'
-  link: '/api-examples'
+  link: '/vitepress/api-examples'
 next:
   text: 'Markdown'
-  link: '/markdown-examples'
+  link: '/vitepress/markdown-examples'
 ---
 # example
 first 例子 test

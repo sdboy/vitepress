@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./chunks/framework.DCbFfXlL.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"en/foo.md","filePath":"en/foo.md","lastUpdated":1746327279000}'),a={name:"en/foo.md"};function n(r,s,c,d,f,p){return o(),t("div")}const m=e(a,[["render",n]]);export{i as __pageData,m as default};

@@ -9,16 +9,16 @@ hero:
   actions:
     - theme: brand
       text: Markdown Examples
-      link: /markdown-examples
+      link: /vitepress/markdown-examples
     - theme: alt
       text: API Examples
-      link: /api-examples
+      link: /vitepress/api-examples
     - theme: alt
       text: API Examples
-      link: /vitepress/example
+      link: /vitepress/vitepress/example
     - theme: alt
       text: VitePress
-      link: /vitepress/VitePress搭建
+      link: /vitepress/vitepress/VitePress搭建
 
 features:
   - title: Feature A
