@@ -4,13 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   locales: {
     root: {
-      label: 'English',
-      lang: 'en'
-    },
-    zh: {
       label: '简体中文',
-      lang: 'zh',
-      link: '/zh/guide'
+      lang: 'zh'
     }
   },
   lang: 'zh-CN',

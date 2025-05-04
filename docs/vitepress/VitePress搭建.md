@@ -11,7 +11,9 @@ author: Ray
 from: https://vitepress.dev/zh/guide/getting-started
 ---
 # VitePress个人文档服务搭建
-<!--more-->
+
+![图片alt](/vitepress/xiaomai.jpg "xiaomai")
+
 ## 安装
 
 ### 依赖和准备
