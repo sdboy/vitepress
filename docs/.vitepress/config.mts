@@ -19,7 +19,7 @@ export default defineConfig({
   description: "A blog site",
   base: '/vitepress/',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.png' }],
+    ['link', { rel: 'icon', href: '/vitepress/favicon.png' }],
     [
       'link',
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
