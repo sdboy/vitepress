@@ -1,7 +1,7 @@
 ---
 lang: zh-CN
-title: Jetson TX2设置自动登录
-titleTemplate: Vite & Vue powered static site generator
+title: Jetson
+titleTemplate: Jetson TX2设置自动登录
 description: Jetson TX2设置自动登录
 head:
   - - meta

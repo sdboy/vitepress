@@ -1,7 +1,7 @@
 ---
 lang: zh-CN
-title: Git Ignore
-titleTemplate: Vite & Vue powered static site generator
+title: Git
+titleTemplate: Git Ignore
 description: Git Ignore
 head:
   - - meta

@@ -1,8 +1,8 @@
 ---
 lang: zh-CN
 title: VitePress
-titleTemplate: Vite & Vue powered static site generator
-description: VitePress
+titleTemplate: VitePress个人文档服务搭建
+description: VitePress个人文档服务搭建
 head:
   - - meta
     - name: description

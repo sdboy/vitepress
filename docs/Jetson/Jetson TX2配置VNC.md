@@ -1,7 +1,7 @@
 ---
 lang: zh-CN
-title: Jetson TX2配置VNC
-titleTemplate: Vite & Vue powered static site generator
+title: Jetson
+titleTemplate: Jetson TX2配置VNC
 description: Jetson TX2配置VNC
 head:
   - - meta

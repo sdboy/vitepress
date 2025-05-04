@@ -1,7 +1,7 @@
 ---
 lang: zh-CN
-title: Component
-titleTemplate: Vite & Vue powered static site generator
+title: Angular
+titleTemplate: Angular 组件
 description: Angular Component
 head:
   - - meta
