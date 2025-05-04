@@ -17,6 +17,7 @@ export default defineConfig({
   title: "blog",
   titleTemplate: ':title - Ray\'s blog',
   description: "A blog site",
+  base: '/vitepress/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }],
     [
