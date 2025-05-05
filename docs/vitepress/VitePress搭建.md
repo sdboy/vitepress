@@ -16,14 +16,7 @@ sidebar: true
 aside: true
 outline: deep
 lastUpdated: Date
-editLink: false
 footer: true
-prev:
-  text: 'Markdown'
-  link: '/vitepress/VitePress搭建'
-next:
-  text: 'Markdown'
-  link: '/vitepress/VitePress搭建'
 ---
 # VitePress个人文档服务搭建
 

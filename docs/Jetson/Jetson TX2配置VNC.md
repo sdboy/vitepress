@@ -16,7 +16,6 @@ sidebar: true
 aside: true
 outline: deep
 lastUpdated: Date
-editLink: false
 footer: true
 ---
 # Jetson TX2配置VNC

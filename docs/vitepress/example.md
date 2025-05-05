@@ -16,7 +16,7 @@ sidebar: true
 aside: true
 outline: deep
 lastUpdated: Date
-editLink: false
+editLink: true
 footer: true
 prev:
   text: 'Markdown'

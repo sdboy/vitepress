@@ -81,7 +81,16 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
-      // { text: 'Examples', link: '/markdown-examples' }
+      { text: '杂记', link: '/vitepress/example' },
+      { text: '分组', 
+        items: [
+          { text: 'Angular', link: '/Angular/Angular Component' },
+          { text: 'Git', link: '/Git/Git设置镜像' },
+          { text: 'Jetson', link: '/Jetson/Jetson TX2设置自动登录' },
+          { text: 'vitepress', link: '/vitepress/example' },
+          { text: '编程指导思想', link: '/编程指导思想/编程范式' },
+        ]
+      }
     ],
 
     // sidebar: [
@@ -114,6 +123,18 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/sdboy' }
     ],
+
+    editLink: {
+      // pattern: ({ filePath }) => {
+      //   if (filePath.startsWith('/')) {
+      //     return `https://github.com/sdboy/vitepress/edit/main/${filePath}`
+      //   } else {
+      //     return `https://github.com/sdboy/vitepress/edit/main/docs/${filePath}`
+      //   }
+      // },
+      pattern: 'https://github.com/sdboy/vitepress/edit/main/docs/:path',
+      text: '编辑此页'
+    },
 
     lastUpdated: {
       text: 'Updated at',
