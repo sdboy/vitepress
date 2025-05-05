@@ -47,8 +47,14 @@ export default defineConfig({
       `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-CB7DEN2H2V');`
-    ]
+      gtag('config', 'G-CB7DEN2H2V');
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });`
+    ],
   ],
   srcExclude: ['**/README.md', '**/TODO.md'],
   outDir: '../vitepress',
