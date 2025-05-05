@@ -124,7 +124,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '基于CC-BY-SA-3.0协议进行许可',
+      message: '基于[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议进行许可',
       copyright: 'Copyright © 2022-2025 Ray'
     },
 
