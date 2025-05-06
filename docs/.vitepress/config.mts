@@ -1,6 +1,7 @@
 import { defineConfig, UserConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar';
 import { VitePressSidebarOptions } from 'vitepress-sidebar/types';
+import { withMermaid } from "vitepress-plugin-mermaid";
 
 const vitePressConfigs: UserConfig = {
   locales: {
@@ -306,4 +307,5 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
 ]
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig(withSidebar(vitePressConfigs, vitePressSidebarConfigs))
+// export default defineConfig(withSidebar(vitePressConfigs, vitePressSidebarConfigs))
+export default withMermaid(withSidebar(vitePressConfigs, vitePressSidebarConfigs))
