@@ -146,6 +146,7 @@ const vitePressConfigs: UserConfig = {
           { text: 'Jetson', link: '/Jetson/' },
           { text: 'vitepress', link: '/vitepress/' },
           { text: 'Spring', link: '/Spring/' },
+          { text: '数据结构和算法', link: '/data_structure_and_algorithms/' },
         ]
       }
     ],
@@ -309,6 +310,25 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     sortFolderTo: "top",
     // 菜单展开功能
     collapsed: false,
+  },
+  {
+    documentRootPath: "docs",
+    scanStartPath: 'data_structure_and_algorithms',
+    resolvePath: '/data_structure_and_algorithms/',
+    // 使用h1的标题作为侧边栏的标题
+    useTitleFromFileHeading: true,
+    // 使用文件夹的index.md
+    useFolderTitleFromIndexFile: true,
+    // 指向文件夹的链接
+    useFolderLinkFromIndexFile: true,
+    // 根据md文件的order进行排序
+    // sortMenusByFrontmatterOrder: true,
+    // 排序之后将不是文件夹的放后面
+    // sortFolderTo: "top",
+    sortMenusOrderNumericallyFromTitle: true,
+    // 菜单展开功能
+    collapsed: true,
+    collapseDepth: 2,
   },
 ]
 
