@@ -6,7 +6,63 @@ export default defineConfig({
   locales: {
     root: {
       label: '简体中文',
-      lang: 'zh'
+      lang: 'zh',
+      themeConfig: {
+        search: {
+          provider: 'local',
+          options: {
+            locales: {
+              root: {
+                translations: {
+                  button: {
+                    buttonText: "搜索",
+                    buttonAriaLabel: "搜索"
+                  },
+                  modal: {
+                    displayDetails: "显示详细列表",
+                    resetButtonTitle: "清除查询条件",
+                    backButtonTitle: "关闭搜索",
+                    noResultsText: "无相关结果",
+                    footer: {
+                      selectText: "选择",
+                      selectKeyAriaLabel: "enter",
+                      navigateText: "切换",
+                      navigateUpKeyAriaLabel: "up arrow",
+                      navigateDownKeyAriaLabel: "down arrow",
+                      closeText: "关闭",
+                      closeKeyAriaLabel: "escape"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        lastUpdated: {
+          text: '最后更新于'
+        },
+        outline: {
+          label: "页面导航"
+        },
+        docFooter: {
+          prev: '上一页',
+          next: '下一页'
+        },
+        editLink: {
+          pattern: 'https://github.com/sdboy/vitepress/edit/main/docs/:path',
+          text: '编辑此页'
+        },
+        // outlineTitle: "页面内容",
+        langMenuLabel: "选择语言",
+        // 返回顶部 Return to top
+        returnToTopLabel: "返回顶部",
+        // 菜单  Menu
+        sidebarMenuLabel: "菜单",
+        //头上角要主题切换的文字 Appearance
+        darkModeSwitchLabel: "切换主题",
+        lightModeSwitchTitle: "切换到浅色主题",
+        darkModeSwitchTitle: "切换到深色主题"
+      }
     }
   },
   lang: 'zh-CN',
@@ -124,20 +180,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/sdboy' }
     ],
 
-    editLink: {
-      // pattern: ({ filePath }) => {
-      //   if (filePath.startsWith('/')) {
-      //     return `https://github.com/sdboy/vitepress/edit/main/${filePath}`
-      //   } else {
-      //     return `https://github.com/sdboy/vitepress/edit/main/docs/${filePath}`
-      //   }
-      // },
-      pattern: 'https://github.com/sdboy/vitepress/edit/main/docs/:path',
-      text: '编辑此页'
-    },
-
     lastUpdated: {
-      text: 'Updated at',
       formatOptions: {
         dateStyle: 'full',
         timeStyle: 'medium'
@@ -152,19 +195,5 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
-
-    docFooter: {
-      prev: '上一页',
-      next: '下一页'
-    },
-
-    outlineTitle: "页面内容",
-    // 返回顶部 Return to top
-    returnToTopLabel: "返回顶部",
-
-    // 菜单  Menu
-    sidebarMenuLabel: "菜单",
-    //头上角要主题切换的文字 Appearance
-    darkModeSwitchLabel: "切换主题",
   }
 })
