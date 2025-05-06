@@ -214,7 +214,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     // 排序之后将不是文件夹的放后面
     sortFolderTo: "top",
     // 菜单展开功能
-    collapsed: false,
+    collapsed: true,
+    collapseDepth: 2,
   },
   {
     documentRootPath: "docs",
@@ -231,7 +232,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     // 排序之后将不是文件夹的放后面
     sortFolderTo: "top",
     // 菜单展开功能
-    collapsed: false,
+    collapsed: true,
+    collapseDepth: 2,
   },
   {
     documentRootPath: "docs",
@@ -248,7 +250,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     // 排序之后将不是文件夹的放后面
     sortFolderTo: "top",
     // 菜单展开功能
-    collapsed: false,
+    collapsed: true,
+    collapseDepth: 2,
   },
   {
     documentRootPath: "docs",
@@ -265,7 +268,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     // 排序之后将不是文件夹的放后面
     sortFolderTo: "top",
     // 菜单展开功能
-    collapsed: false,
+    collapsed: true,
+    collapseDepth: 2,
   },
   {
     documentRootPath: "docs",
@@ -278,11 +282,13 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     // 指向文件夹的链接
     useFolderLinkFromIndexFile: true,
     // 根据md文件的order进行排序
-    sortMenusByFrontmatterOrder: true,
+    // sortMenusByFrontmatterOrder: true,
     // 排序之后将不是文件夹的放后面
-    sortFolderTo: "top",
+    // sortFolderTo: "top",
+    sortMenusOrderNumericallyFromTitle: true,
     // 菜单展开功能
-    collapsed: false,
+    collapsed: true,
+    collapseDepth: 2,
     excludePattern: [
       'spring-framework.wiki/'
     ]
