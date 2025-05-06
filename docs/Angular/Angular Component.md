@@ -17,6 +17,7 @@ aside: true
 outline: deep
 lastUpdated: Date
 footer: true
+order: 2
 ---
 # Angular组件
 
@@ -323,5 +324,8 @@ public child1: ElementRef;
 @ViewChild('child2', {static: true})
 public child2: ElementRef;
 ```
->提示：ViewChild装饰器用于将子组件识别符与某个属性关联起来，第一个参数必须是已经存在的子组件识别符（不带#），第二个参数static与指定该组件是否为“静态组件”--不会时有时无的组件<br>
->注意：通过“ViewChild-视图子组件“方式，父组件可以获得任一子组件中的任意数据--一定程度上违反了”最少知识法则“<br>
+> [!TIP]
+> ViewChild装饰器用于将子组件识别符与某个属性关联起来，第一个参数必须是已经存在的子组件识别符（不带#），第二个参数static与指定该组件是否为“静态组件”--不会时有时无的组件<br>
+
+> [!NOTE]
+> 通过“ViewChild-视图子组件“方式，父组件可以获得任一子组件中的任意数据--一定程度上违反了”最少知识法则“<br>
