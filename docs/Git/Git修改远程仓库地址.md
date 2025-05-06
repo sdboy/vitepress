@@ -17,6 +17,7 @@ aside: true
 outline: deep
 lastUpdated: Date
 footer: true
+order: 2
 ---
 # Git修改远程仓库地址
 

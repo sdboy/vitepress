@@ -17,6 +17,7 @@ aside: true
 outline: deep
 lastUpdated: Date
 footer: true
+order: 3
 ---
 
 # Git Ignore解释

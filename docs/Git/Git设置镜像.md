@@ -17,6 +17,7 @@ aside: true
 outline: deep
 lastUpdated: Date
 footer: true
+order:
 ---
 # Git设置镜像
 
