@@ -1,0 +1,194 @@
+This document describes the strategy for performance micro-benchmarks in Spring Framework.
+
+Micro-benchmarks are designed for optimizing code in the Framework, when hot code paths and usage profiles are known.
+This approach does not replace profilers and full performance benchmarks (complete applications, with I/O and network latency).
+
+== Spring Framework micro-benchmarks infrastructure
+
+Spring Framework uses the http://openjdk.java.net/projects/code-tools/jmh/[JMH] harness for building and running micro-benchmarks.
+JMH is integrated with the Spring Framework build thanks to the https://github.com/melix/jmh-gradle-plugin[JMH Gradle plugin].
+This plugin is applied to all `spring-*` modules and creates a `jmh` configuration for them.
+Benchmark sources are located in `src/jmh/java` in each Spring Framework module.
+The Gradle plugin is applied and configured in `/gradle/spring-module.gradle`.
+
+JMH helps you to write and run benchmarks while avoiding as much as possible common benchmark pitfalls.
+This is why JMH looks at the benchmark sources and generates classes that will run the benchmark.
+
+The Gradle plugin provides tasks for building the JMH jars (`./gradlew jmhJar`) and running the benchmarks (`./gradlew jmh`).
+The next section will explain how to use existing benchmarks in the Spring Framework codebase for optimization work.
+
+
+== Running micro-benchmarks
+
+While `./gradlew jmh` will run benchmarks from the CLI, this command will run *all* available benchmarks in the project,
+unless you modify the existing plugin configuration on a per-usage basis.
+
+The easiest way to work with an existing benchmark is the following.
+
+First, we need to build the JMH jar for the spring module we're working with, e.g. `./gradlew :spring-core:jmhJar`.
+We can browse the source repository or list the available benchmarks on the CLI and find the one(s) that we'd like to work with,
+`java -jar spring-core/build/libs/spring-core-5.3.0-SNAPSHOT-jmh.jar -l`.
+
+Each benchmark can provide benchmark configuration with annotations (benchmark type, JVM configuration, parameters).
+We need to look at the benchmark class(es)/methods and familiarize ourselves with them; this step is required to figure out which benchmark options we want to enable.
+
+For example, we can run the `MimeTypeBenchmark.cachedParserSomeMimeTypes` benchmark, with 2 JVM forks, the GC profiler, and specific benchmark parameters with:
+
+[source,bash]
+----
+java -jar spring-core/build/libs/spring-core-5.3.0-SNAPSHOT-jmh.jar -f2 -prof gc -p customTypesCount=10,20 MimeTypeBenchmark.cachedParserSomeMimeTypes
+----
+
+The benchmark options are really important, as the specific parameters are part of the benchmark design;
+JMH parameters can help you test a wide variety of runtime/workload profiles (like concurrency).
+All JMH options can be listed on the CLI using `java -jar spring-core/build/libs/spring-core-5.3.0-SNAPSHOT-jmh.jar -h`.
+
+We can then change the source code, rebuild the JMH jar, re-run and compare results.
+
+== Interpreting benchmark results
+
+Note that it's not always easy to compare two implementations and many aspects should be taken into account:
+
+* differents JVM version and options
+* the error magin of the results
+* number of iterations, forks and worker threads for the benchmark run (JMH CLI options)
+* benchmark parameter values for the specific benchmark
+* running other benchmarks on the same code, as maybe a specific optimization made another use case worse
+
+In any case, questioning the benchmark design and improving it is always useful - see next section!
+
+== Designing micro-benchmarks
+
+With the current build infrastructure, adding a new Benchmark can be done easily: adding a new class under `src/jmh/java` is enough.
+For consistency, all benchmark classes should be named `*Benchmark`.
+
+If additional dependencies are required for the benchmarks, they can be added to the `jmh` configuration in the dependencies section of the Spring module:
+
+[source,groovy]
+----
+dependencies {
+  jmh 'org.example:sample:1.0.0'
+}
+----
+
+Designing a micro-benchmark can be hard, and JMH won't automatically prevent all benchmarking pitfalls from happening.
+The JVM, OSes and CPUs have many optimization strategies - JMH provides tools to avoid those, but good benchmark design is still essential.
+
+JMH http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/[provides many benchmark samples] to learn about design.
+
+We'll use here a sample benchmark and discuss best practices. Let's say we'd like to measure the performance of our `MimeTypeUtils` MIME type parser.
+Because this code is executed many times at runtime, we'll design the benchmark to measure and optimize throughput.
+JMH supports many http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_02_BenchmarkModes.java[benchmark modes].
+
+A basic benchmark can use http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_01_HelloWorld.java[the JMH annotation infrastructure]:
+We'd like to take a set of various raw MIME types and parse them with the parser.
+
+[source,java]
+----
+@BenchmarkMode(Mode.Throughput)
+public class MimeTypeBenchmark {
+
+  @Benchmark
+  public void parseMimeTypes() {
+    final List<String> mimeTypes = Arrays.asList("application/json","text/html", ...);
+    for(String type : mimeTypes) {
+      MimeType parsed = MimeTypeUtils.parseMimeType(type);
+    }
+  }
+}
+----
+
+There are many issues with this benchmark and we'll try to fix them.
+First, our input is predictable and http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_10_ConstantFold.java[Constant Folding] is likely to happen.
+We can extract this data into a http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_03_States.java[shared state].
+
+[source,java]
+----
+@BenchmarkMode(Mode.Throughput)
+public class MimeTypeBenchmark {
+
+  @State(Scope.Benchmark)
+  public static class BenchmarkData {
+    public List<String> mimeTypes;
+
+    public BenchmarkData() {
+      this.mimeTypes = Arrays.asList("application/json","text/html", ...);
+    }
+  }
+
+  @Benchmark
+  public void parseMimeTypes(BenchmarkData data) {
+    for(String type : data.mimeTypes) {
+      MimeType parsed = MimeTypeUtils.parseMimeType(type);
+    }
+  }
+}
+----
+
+Our benchmark still has a problem of http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_08_DeadCode.java[Dead Code Elimination];
+usually JMH takes care of this if the operation result is returned by the method, but in this case we've got multiple results and no easy way to merge them.
+We're going to use http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_09_Blackholes.java[Blackholes] to solve that problem.
+
+[source,java]
+----
+@BenchmarkMode(Mode.Throughput)
+public class MimeTypeBenchmark {
+
+  @State(Scope.Benchmark)
+  public static class BenchmarkData {
+    public List<String> mimeTypes;
+
+    public BenchmarkData() {
+      this.mimeTypes = Arrays.asList("application/json","text/html", ...);
+    }
+  }
+
+  @Benchmark
+  public void parseMimeTypes(BenchmarkData data, Blackhole bh) {
+    for(String type : data.mimeTypes) {
+      bh.consume(MimeTypeUtils.parseMimeType(type));
+    }
+  }
+}
+----
+
+Even with this new version, we need to http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_11_Loops.java[carefully consider using loops in benchmark methods].
+As an improvement, we could http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_27_Params.java[consider adding `@Param` annotations to parameterize the size of the raw MIME types to parse].
+
+We can also create a baseline method to compare with/without the parsing execution:
+
+[source,java]
+----
+@BenchmarkMode(Mode.Throughput)
+public class MimeTypeBenchmark {
+
+  @State(Scope.Benchmark)
+  public static class BenchmarkData {
+    public List<String> mimeTypes;
+
+    public BenchmarkData() {
+      this.mimeTypes = Arrays.asList("application/json","text/html", ...);
+    }
+  }
+
+  @Benchmark
+  public void baseline(BenchmarkData data, Blackhole bh) {
+    for(String type : data.mimeTypes) {
+      bh.consume(type);
+    }
+  }
+
+
+  @Benchmark
+  public void parseMimeTypes(BenchmarkData data, Blackhole bh) {
+    for(String type : data.mimeTypes) {
+      bh.consume(MimeTypeUtils.parseMimeType(type));
+    }
+  }
+}
+----
+
+
+In all cases, it's a good idea to try different approaches, check out data provided by JMH profilers, and discuss the benchmark with colleagues!
+
+This sample benchmark is quite simple, and other problem spaces (like controlling concurrency) can be dealt with by using http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/[other features showcased in the samples].

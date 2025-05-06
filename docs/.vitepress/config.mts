@@ -282,6 +282,9 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     sortFolderTo: "top",
     // 菜单展开功能
     collapsed: false,
+    excludePattern: [
+      'spring-framework.wiki/'
+    ]
   },
   {
     documentRootPath: "docs",

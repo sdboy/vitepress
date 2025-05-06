@@ -1,0 +1,20 @@
+|===
+| | Build and Deploy Snapshot | CI
+
+h| 5.3.x
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml/badge.svg?branch=5.3.x[link=https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml?query=branch%3A5.3.x]
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml/badge.svg?branch=5.3.x[link=https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml?query=branch%3A5.3.x]
+
+h| 6.0.x
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml/badge.svg?branch=6.0.x[link=https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml?query=branch%3A6.0.x]
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml/badge.svg?branch=6.0.x[link=https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml?query=branch%3A6.0.x]
+
+
+h| 6.1.x
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml/badge.svg?branch=6.1.x[link=https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml?query=branch%3A6.1.x]
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml/badge.svg?branch=6.1.x[link=https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml?query=branch%3A6.1.x]
+
+h| main
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml/badge.svg?branch=main[link=https://github.com/spring-projects/spring-framework/actions/workflows/build-and-deploy-snapshot.yml?query=branch%3Amain]
+a| image::https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml/badge.svg?branch=main[link=https://github.com/spring-projects/spring-framework/actions/workflows/ci.yml?query=branch%3Amain]
+
