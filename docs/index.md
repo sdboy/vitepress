@@ -7,6 +7,9 @@ hero:
   name: "Ray的小站"
   # text: "随笔记录"
   tagline: 随笔记录
+  image:
+    src: /favicon.png
+    alt: EUQI
   actions:
     - theme: brand
       text: VitePress

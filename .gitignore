@@ -1,5 +1,6 @@
 node_modules/
 /public
+/target
 docs/.vitepress/dist/
 docs/.vitepress/cache/
 /vitepress
