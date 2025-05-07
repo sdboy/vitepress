@@ -114,7 +114,7 @@ const vitePressConfigs: UserConfig = {
     ],
   ],
   srcExclude: ['**/README.md', '**/TODO.md'],
-  outDir: '../vitepress',
+  outDir: '../target/vitepress',
   ignoreDeadLinks: true,
   lastUpdated: true,
 
