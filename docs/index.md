@@ -12,11 +12,11 @@ hero:
     alt: EUQI
   actions:
     - theme: brand
-      text: VitePress
-      link: /vitepress/VitePress搭建
+      text: 杂记
+      link: /essay/
     - theme: alt
-      text: Angualr
-      link: /Angular/Angular Component
+      text: 杂记
+      link: /essay/
 
 features:
   - title: Feature A

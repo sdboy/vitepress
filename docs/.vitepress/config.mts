@@ -141,12 +141,11 @@ const vitePressConfigs: UserConfig = {
       { text: '杂记', link: '/essay/' },
       { text: '分组', 
         items: [
-          { text: 'Angular', link: '/Angular/' },
-          { text: 'Git', link: '/Git/' },
-          { text: 'Jetson', link: '/Jetson/' },
-          { text: 'vitepress', link: '/vitepress/' },
-          { text: 'Spring', link: '/Spring/' },
-          { text: '数据结构和算法', link: '/data_structure_and_algorithms/' },
+          { text: '框架', link: '/Framework/' },
+          { text: '开发工具', link: '/Kit/' },
+          { text: '嵌入式', link: '/Embedded/' },
+          { text: '学习', link: '/Knowledge/' },
+          { text: '项目展示', link: '/Project/' },
         ]
       }
     ],
@@ -202,8 +201,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
   // },
   {
     documentRootPath: "docs",
-    scanStartPath: 'Angular',
-    resolvePath: '/Angular/',
+    scanStartPath: 'Embedded/',
+    resolvePath: '/Embedded/',
     // 使用h1的标题作为侧边栏的标题
     useTitleFromFileHeading: true,
     // 使用文件夹的index.md
@@ -220,8 +219,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
   },
   {
     documentRootPath: "docs",
-    scanStartPath: 'Git',
-    resolvePath: '/Git/',
+    scanStartPath: 'essay/',
+    resolvePath: '/essay/',
     // 使用h1的标题作为侧边栏的标题
     useTitleFromFileHeading: true,
     // 使用文件夹的index.md
@@ -238,44 +237,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
   },
   {
     documentRootPath: "docs",
-    scanStartPath: 'vitepress',
-    resolvePath: '/vitepress/',
-    // 使用h1的标题作为侧边栏的标题
-    useTitleFromFileHeading: true,
-    // 使用文件夹的index.md
-    useFolderTitleFromIndexFile: true,
-    // 指向文件夹的链接
-    useFolderLinkFromIndexFile: true,
-    // 根据md文件的order进行排序
-    sortMenusByFrontmatterOrder: true,
-    // 排序之后将不是文件夹的放后面
-    sortFolderTo: "top",
-    // 菜单展开功能
-    collapsed: true,
-    collapseDepth: 2,
-  },
-  {
-    documentRootPath: "docs",
-    scanStartPath: 'Jetson',
-    resolvePath: '/Jetson/',
-    // 使用h1的标题作为侧边栏的标题
-    useTitleFromFileHeading: true,
-    // 使用文件夹的index.md
-    useFolderTitleFromIndexFile: true,
-    // 指向文件夹的链接
-    useFolderLinkFromIndexFile: true,
-    // 根据md文件的order进行排序
-    sortMenusByFrontmatterOrder: true,
-    // 排序之后将不是文件夹的放后面
-    sortFolderTo: "top",
-    // 菜单展开功能
-    collapsed: true,
-    collapseDepth: 2,
-  },
-  {
-    documentRootPath: "docs",
-    scanStartPath: 'Spring',
-    resolvePath: '/Spring/',
+    scanStartPath: 'Framework/',
+    resolvePath: '/Framework/',
     // 使用h1的标题作为侧边栏的标题
     useTitleFromFileHeading: true,
     // 使用文件夹的index.md
@@ -296,8 +259,8 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
   },
   {
     documentRootPath: "docs",
-    scanStartPath: 'essay',
-    resolvePath: '/essay/',
+    scanStartPath: 'Kit/',
+    resolvePath: '/Kit/',
     // 使用h1的标题作为侧边栏的标题
     useTitleFromFileHeading: true,
     // 使用文件夹的index.md
@@ -309,12 +272,13 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     // 排序之后将不是文件夹的放后面
     sortFolderTo: "top",
     // 菜单展开功能
-    collapsed: false,
+    collapsed: true,
+    collapseDepth: 2,
   },
   {
     documentRootPath: "docs",
-    scanStartPath: 'data_structure_and_algorithms',
-    resolvePath: '/data_structure_and_algorithms/',
+    scanStartPath: 'Knowledge/',
+    resolvePath: '/Knowledge/',
     // 使用h1的标题作为侧边栏的标题
     useTitleFromFileHeading: true,
     // 使用文件夹的index.md

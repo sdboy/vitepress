@@ -20,7 +20,7 @@ footer: true
 ---
 # VitePress个人文档服务搭建
 
-![图片alt](../public/xiaomai.jpg "xiaomai")
+![图片alt](../../public/xiaomai.jpg "xiaomai")
 
 ## 安装
 
