@@ -3,7 +3,6 @@ node_modules/
 /target
 docs/.vitepress/dist/
 docs/.vitepress/cache/
-/vitepress
 #some local files
 */.settings/
 */.DS_Store
