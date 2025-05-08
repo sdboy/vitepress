@@ -1,15 +1,15 @@
 ---
 lang: zh-CN
 title: Idea
-titleTemplate: 博客系统存储方案
-description: 博客系统存储方案
+titleTemplate: 类Reddit 网站存储方案
+description: 类Reddit 网站存储方案
 head:
   - - meta
     - name: description
       content: hello
   - - meta
     - name: keywords
-      content: 博客系统存储方案
+      content: 类Reddit 网站存储方案
 layout: doc
 navbar: true
 sidebar: true
