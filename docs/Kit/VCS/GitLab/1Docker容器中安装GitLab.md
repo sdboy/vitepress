@@ -78,6 +78,8 @@ GitLab容器使用宿主机挂载卷来存储持久数据：
 |`$GITLAB_HOME/config`|`/etc/gitlab`|GitLab配置文件|
 |`$GITLAB_HOME/logs`|`/var/log/gitlab`|GitLab日志|
 |`$GITLAB_HOME/data`|`/var/opt/gitlab`|GitLab数据|
+> [!TIP]
+> 手动创建目录，并授予适当的权限。
 
 ## 安装
 
@@ -142,6 +144,12 @@ GitLab容器使用宿主机挂载卷来存储持久数据：
    ```sh
    docker compose up -d
    ```
+
+4. 访问 GitLab URL，使用用户名`root`和以下命令中的密码登录：
+   ```sh
+   $ sudo docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+   ```
+
 ### Docker Engine安装
 
 1. 如果已经设置了`GITLAB_HOME`环镜变量，请根据需要调整目录，然后运行镜像：<br>
@@ -185,8 +193,10 @@ GitLab容器使用宿主机挂载卷来存储持久数据：
 
 3. 访问 GitLab URL，使用用户名`root`和以下命令中的密码登录：
    ```sh
-   $ sudo docker exec -it gitlab grep 'Password:'
-   /etc/gitlab/initial_root_password
+   $ sudo docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
    ```
    > [!WARNING]
    > 24 小时后首次重启容器时，密码文件会被自动删除。
+
+   # 参考
+   [Install GitLab in a Docker container](https://docs.gitlab.com/17.10/install/docker/installation/)
