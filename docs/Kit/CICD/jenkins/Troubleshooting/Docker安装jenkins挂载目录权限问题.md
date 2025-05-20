@@ -602,3 +602,59 @@ docker logs jenkins | grep -i "permission denied\|wrong volume permissions"
 --- 
 
 是否需要我提供这部分的日志诊断？你可以直接粘贴日志内容，我帮你分析 ✅
+
+## 最终解决方案
+
+查看当前用户`id`
+```bash
+$ id
+uid=1000(ray) gid=1003(ray) groups=1003(ray),4(adm),20(dialout),24(cdrom),27(sudo),29(audio),44(video),46(plugdev),60(games),100(users),107(netdev),992(render),995(input),1000(gpio),1001(spi),1002(i2c)
+```
+
+查看当前用户组`id`
+```bash
+$ id -g
+1003
+```
+
+更改`jenkins_home`目录权限为当前用户
+```bash
+$ sudo chown -R 1000:1003 /srv/jenkins_home
+```
+
+编辑 `docker-compose.yml`
+```yaml
+version: '3.6'
+services: 
+  jenkins: 
+    image: docker.mybacc.com/jenkins/jenkins:lts-jdk17
+    container_name: jenkins
+    privileged: true
+    restart: always
+    user: '${UID}:${GID}'
+    environment:
+      - UID=${UID}
+      - GID=${GID}
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes: 
+       - '/srv/jenkins_home/data:/var/jenkins_home'
+```
+
+停止并删除容器
+```bash
+$ sudo docker stop jenkins && docker rm jenkins
+```
+
+启动容器
+```bash
+$ sudo UID=$(id -u) GID=$(id -g) docker-compose up -d
+```
+
+验证
+```bash
+$ sudo docker ps
+CONTAINER ID   IMAGE                                         COMMAND                  CREATED          STATUS          PORTS                                                                                          NAMES
+2f691fc0d8cd   docker.mybacc.com/jenkins/jenkins:lts-jdk17   "/usr/bin/tini -- /u…"   29 seconds ago   Up 27 seconds   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp, 0.0.0.0:50000->50000/tcp, [::]:50000->50000/tcp   jenkins
+```
