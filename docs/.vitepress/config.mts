@@ -146,6 +146,7 @@ const vitePressConfigs: UserConfig = {
           { text: '嵌入式', link: '/Embedded/' },
           { text: '学习', link: '/Knowledge/' },
           { text: '项目展示', link: '/Project/' },
+          { text: '云原生', link: '/CNCF/' },
         ]
       }
     ],
@@ -279,6 +280,25 @@ const vitePressSidebarConfigs: VitePressSidebarOptions[] = [
     documentRootPath: "docs",
     scanStartPath: 'Knowledge/',
     resolvePath: '/Knowledge/',
+    // 使用h1的标题作为侧边栏的标题
+    useTitleFromFileHeading: true,
+    // 使用文件夹的index.md
+    useFolderTitleFromIndexFile: true,
+    // 指向文件夹的链接
+    useFolderLinkFromIndexFile: true,
+    // 根据md文件的order进行排序
+    // sortMenusByFrontmatterOrder: true,
+    // 排序之后将不是文件夹的放后面
+    // sortFolderTo: "top",
+    sortMenusOrderNumericallyFromTitle: true,
+    // 菜单展开功能
+    collapsed: true,
+    collapseDepth: 2,
+  },
+  {
+    documentRootPath: "docs",
+    scanStartPath: 'CNCF/',
+    resolvePath: '/CNCF/',
     // 使用h1的标题作为侧边栏的标题
     useTitleFromFileHeading: true,
     // 使用文件夹的index.md
