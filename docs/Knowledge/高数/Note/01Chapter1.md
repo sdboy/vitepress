@@ -327,6 +327,11 @@ $\operatorname{arsinh}(x) = \ln\left(x + \sqrt{x^2 + 1}\right)$
 
 ### 1.1.11 函数的运算
 
+设函数 $f(x)$，$g(x)$ 的定义域依次为 $D_1$，$D_2$，$D=D_1\cap D_2\neq \emptyset$，则我们可以定义这两个函数的下列运算：
+和（差）$f\pm g$：$(f\pm g)(x)=f(x)\pm g(x),x\in D$ <br/>
+积 $f\bullet g$：$(f\bullet g)(x)=f(x)\bullet g(x),x\in D$ <br/>
+商 $\frac{f}{g}$：$(\frac{f}{g})(x)=\frac{f(x)}{g(x)},x\in D\setminus \{x|g(x)=0,x\in D\}$
+
 ## 1.2 数列的极限
 
 ## 1.3 函数的极限
