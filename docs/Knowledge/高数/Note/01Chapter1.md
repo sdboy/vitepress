@@ -423,14 +423,14 @@ $$
 > [!IMPORTANT]
 > 收敛 $\Rightarrow$ 有界<br/>
 > 收敛 $\nLeftarrow$ 有界<br/>
-> 发散 $\Rightarrow$ 无界<br/>
-> 发散 $\nLeftarrow$ 无界<br/>
+> 发散 $\nRightarrow$ 无界<br/>
+> 发散 $\Leftarrow$ 无界<br/>
 
 ## 1.3 函数的极限
 
 ### 1.3.1 函数极限的定义
 
-函数极限的一般概念：在自变晨的某个变化过程中，如果对应的函数值无限接近于某个确定的数，那么这个确定的数就叫做在这一变化过程中函数的极限。
+函数极限的一般概念：在自变量的某个变化过程中，如果对应的函数值无限接近于某个确定的数，那么这个确定的数就叫做在这一变化过程中函数的极限。
 
 > [!NOTE]
 > ➀自变量 $x$ 任意地接近于有限值 $x_0$ 或者说趋于有限值 $x_0$（记作 $x\to x_0$）时，对应的函数值 $f(x)$ 的变化情形<br/>
@@ -501,12 +501,178 @@ $$
 
 ### 1.4.1 无穷小
 
+**定义一 如果函数 $f(x)$ 当 $x\to x_0$（或 $x\to \infty$）时的极限为零，那么称函数 $f(x)$ 为当 $x\to x_0$（或 $x\to \infty$）时的无穷小**
+
+> [!NOTE]
+> 除零以外的任何常数都不是无穷小
+
+> [!TIP]
+> 以零为极限的数列 $\{x_n\}$ 称为 $n\to \infty$ 的无穷小
+
+**定理一 在自变量的同一变化过程 $x\to x_0$（或 $x\to \infty$）中，函数 $f(x)$ 具有极限 $A$ 的充分必要条件是 $f(x)=A+\alpha$，其中 $\alpha$ 是无穷小**
+
 ### 1.4.2 无穷大
 
+如果当 $x\to x_0$（或 $x\to \infty$）时，对应的函数值的绝对值 $|f(x)|$ 无限增大，就称函数 $f(x)$ 为当 $x\to x_0$（或 $x\to \infty$）时的无穷大
+
+**定义二 设函数 $f(x)$ 在 $x_0$ 的某一去心邻域内有定义（或 $|x|$ 大于某一正数时有定义）。如果对于任意给定的正数 $M$（不论它多么大），总存在正数 $\delta$（或正数 $X$），只要 $x$ 适合不等式 $0<|x-x_0|<\delta$（或$|x|>X$），对应的函数值 $f(x)$ 总满足不等式**
+$$
+|f(x)|>M,
+$$
+**则称函数 $f(x)$ 为当 $x\to x_0$（或 $x\to \infty$）时的无穷大**
+
+> [!CAUTION]
+> 当 $x\to x_0$（或 $x\to \infty$）时的无穷大的函数 $f(x)$ 按函数极限定义来说，极限是不存在的。但为了便于叙述函数的这一性态，我们也说“函数的极限是无穷大”，并记作
+> $$
+> \lim\limits_{x\to x_0} f(x)=\infty
+> $$
+> 或
+> $$
+> \lim\limits_{x\to \infty} f(x)=\infty
+> $$
+
+无穷大（$\infty$）不是数，不可与很大的数混为一谈。
+
+> [!IMPORTANT]
+> ➀无穷大不是很大的数，它是描述函数的一种状态<br/>
+> ➁函数为无穷大，必定无界，反之不真
+
+如果 $\lim\limits_{x\to x_0} f(x)=\infty$，那么直线 $x=x_0$ 是函数 $y=f(x)$ 的图形的<u>铅直渐近线</u>
+
+**定理二 在自变量的同一变化过程中，如果 $f(x)$ 为无穷大，则 $\frac{1}{f(x)}$ 为无穷小【反之，如果 $f(x)$ 为无穷小，且 $f(x)\neq 0$，则 $\frac{1}{f(x)}$ 为无穷大**
 
 ## 1.5 极限运算法则
 
+> [!TIP]
+> 在下面的讨论中，以号“$\lim$”<u>下面没有标明自变量的变化过程</u>，实际上，下面的定理对 $x\to x_0$ 及 $x\to \infty$ 都是成立的。
+
+**定理一 有限个无穷小的和也是无穷小。**
+
+> [!NOTE]
+> 无限个无穷小之和不一定是无穷小。
+
+**定理二 有界函数与无穷小的乘积是无穷小。**
+
+**推论一 常数与无穷小的乘积是无穷小。**
+**推论二 有限个无穷小的乘积也是无穷小。**
+
+**定理三 如果 $\lim f(x)=A,\lim g(x)=B$，那么**
+
+- $\lim [f(x)\pm g(x)]=\lim f(x)\pm \lim g(x)=A\pm B$；
+
+- $\lim [f(x)\cdot g(x)]=\lim f(x)\cdot \lim g(x)=A\cdot B$；
+
+- **若又有 $B\neq 0$,则**
+  $$
+  \lim \frac{f(x)}{g(x)}=\frac{\lim f(x)}{\lim g(x)}= \frac{A}{B}
+  $$
+
+**推论一 如果 $lim f(x)$ 存在，而 $c$ 为常数，则**
+$$
+\lim [f(x)\cdot c]=c\lim f(x)
+$$
+
+**推论二 如果 $lim f(x)$ 存在，而 $n$ 是正整数，则**
+$$
+\lim [f(x)]^n=[\lim f(x)]^n
+$$
+
+**定理四 设有数列 $\{x\}$ 和 $\{y\}$。如果**
+$$
+\lim\limits_{n\to \infty} x_n=A, \lim\limits_{n\to \infty} y_n=B,
+$$
+
+**那么，**
+
+- $\lim\limits_{n\to \infty} (x_n\pm y_n)=A\pm B$；
+
+- $\lim\limits_{n\to \infty} [x_n\cdot y_n]=A\cdot B$；
+
+- **当 $y_n \neq 0$（$n=1,2,3,\cdots$）且 $B\neq 0$ 时，$\lim\limits_{n\to \infty} \frac{x_n}{y_n}=\frac{A}{B}$。**
+
+**推论一：**
+$$
+\lim [c\cdot f(x)]=c\lim f(x),(c为整数)
+$$
+
+**推论二：**
+$$
+\lim [f(x)]^n=[\lim f(x)]^n,(n为正整数)
+$$
+
+> [!TIP]
+> 数列是特殊的函数。
+
+**定理五 如果 $\varphi (x)\geqslant \psi (x)$， 而 $\lim \varphi (x)=a,\lim \psi (x)=b$，那么 $a\geqslant b$。**
+
+**定理六（复合函数的极限运算法则） 设函数 $y=f[g(x)]$ 是由函数 $u=g(x)$ 与函数 $y=f(u)$ 复合而成，$f[g(x)]$ 在点 $x_0$ 的某去心邻域内有定义，若 $\lim\limits_{x\to x_0} g(x)=u_0,\lim\limits_{u\to u_0} f(u)=A$，且存在 ${\delta}_0> 0$，当 $x\in \mathring{U}(x_0,{\delta}_0)$ 时，有 $g(x)\neq u_0$，则**
+$$
+\lim\limits_{x\to x_0} f[g(x)]=\lim\limits_{u\to u_0} f(u)=A
+$$
+
+**定理七 设 $\lim \varphi (x)=a$，且 $x$ 满足 $0<|x-x_0|<\delta$ 时，$\varphi (x)\neq a$，又有 $\lim\limits_{u\to a} f(u)=A$，则有**
+$$
+\lim\limits_{x\to x_0} f[\varphi (x)]=\lim\limits_{u\to a} f(u)=A
+$$
+
 ## 1.6 极限存在准则
+
+例子：
+$$
+\lim\limits_{x\to 0} \frac{\sin x}{x}=1, \\
+\lim\limits_{x\to \infty} (1+\frac{1}{x})^x=e
+$$
+
+**准则 Ⅰ 如果数列 $\{x_n\}$、$\{y_n\}$ 及 $\{z_n\}$ 满足下列条件：**
+
+- 从某项起，即 $\exists n_0\in mathbb{N}$，当 $n>n_0$ 时，有
+  $$
+  y_n\leqslant x_n\leqslant z_n
+  $$
+
+- $\lim\limits_{n\to \infty} y_n=a,\quad \lim\limits_{n\to \infty} z_n=a$
+
+**那么数列 $\{x_n\}$ 的极限存在，且 $\lim\limits_{n\to \infty} x_n=a$**
+
+**准则 Ⅰ$^\prime$ 如果**
+
+- 当 $x\in \mathring{U}(x_0,r)$（或 $|x|>M$）时，
+  $$
+  g(x)\leqslant f(x)\leqslant h(x)
+  $$
+
+- $\lim\limits_{x\to x_0 \atop (x\to \infty)} g(x)=A,\lim\limits_{x\to x_0 \atop (x\to \infty)} h(x)=A$，
+
+**那么 $\lim\limits_{x\to x_0} f(x)$ 存在且等于 $A$**
+
+> [!NOTE]
+> 准则 Ⅰ 及准则 Ⅰ$^\prime$ 称为<u>夹逼准则</u>
+
+**准则 Ⅱ 单调有界数列必有极限。**
+
+如果数列 $\{x_n\}$ 满足条件：
+$$
+x_1\leqslant x_2\leqslant x_3\leqslant \cdots \leqslant x_n\leqslant x_{n+1}\leqslant x_{n+2}\leqslant \cdots
+$$
+就称数列 $\{x_n\}$ 是<u>单调增加的</u>。
+
+如果数列 $\{x_n\}$ 满足条件：
+$$
+x_n\geqslant x_{n+1}\geqslant x_{n+2}\geqslant \cdots \geqslant x_{n+k}\geqslant x_{n+k+1}\geqslant \cdots
+$$
+就称数列 $\{x_n\}$ 是<u>单调减少的</u>。
+
+单调增加和单调减少的数列统称为<u>单调数列</u>。
+
+> [!NOTE]
+> 这里的单调数列是广义的，就是说，在条件中也包括相等的情形。以后称单调数列都是指这种<u>广义的单调数列</u>。
+
+**准则 Ⅱ$^\prime$ 设函数 $f(x)$ 在点 $x_0$ 的某个左邻域内单调并且有界，则 $f(x)$ 在 $x_0$ 的左极限 $f({x_0}^-)$ 必定存在。**
+
+**柯西（Cauchy）极限存准则 数列 $\{x_n\}$ 收敛的充分必要条件是：对于任意给定的正数 $\varepsilon$，存在着这样的正整数 $N$，使得当 $m>N,n>N$ 时，就有**
+$$
+|x_n-x_m|<\varepsilon
+$$
 
 ## 1.7 无穷小的比较
 
