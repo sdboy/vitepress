@@ -35,7 +35,7 @@ footer: true
 
 创建一个名为 `vue_monorepo` 的新目录，并进入该目录。然后运行 `pnpm init` 命令来初始化pnpm工作区。执行该命令后，将生成一个 `package.json` 文件，该文件将包含pnpm工作区的配置。
 ```bash
-$ E:\notebook>mkdir vue_monorepo
+$ E:\notebook`>`mkdir vue_monorepo
 $ cd vue_monorepo
 $ pnpm init
 ```
