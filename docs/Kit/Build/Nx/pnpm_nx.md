@@ -42,7 +42,7 @@ $ pnpm init
 
 工作区目录结构如下：
 
-```txt
+```text
 E:\notebook\vue_monorepo
 └── package.json
 ```
@@ -55,15 +55,19 @@ $ git init
 
 在当前目录下创建 `.gitignore` 文件，并添加以下内容：
 
-```txt
+::: code-group
+
+```text [.gitignore]
 node_modules
 dist
 build
 ```
 
+:::
+
 此时的目录结构如下：
 
-```txt
+```text
 E:\notebook\vue_monorepo
 ├── .git
 ├── .gitignore
@@ -88,13 +92,17 @@ $ mkdir apps packages
 
 现在让我们配置 PNPM 以正确识别单仓库工作区。基本操作是在仓库根目录创建一个 `pnpm-workspace.yaml` 文件，用于定义我们的单仓库结构：
 
-```yaml
+::: code-group
+
+```yaml [pnpm-workspace.yaml]
 packages:
   # executable/launchable applications
   - 'apps/*'
   # all packages in subdirs of packages/ and components/
   - 'packages/*'
 ```
+
+:::
 
 此时的目录结构如下：
 
@@ -122,7 +130,7 @@ $ npx nx@latest init
 
 此命令将创建一个 `nx.json` 文件，该文件包含 Nx 的核心配置。文件结构如下：
 
-```txt
+```text
 E:\notebook\vue_monorepo
 ├── .git
 ├── .gitignore
@@ -144,7 +152,7 @@ $ npx nx g @nx/vue:app apps/my-app
 
 创建成功后，目录结构如下：
 
-```txt
+```text
 E:\notebook\vue_monorepo
 ├── .git
 ├── .gitignore
