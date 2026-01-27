@@ -868,7 +868,96 @@ Task Atomizer插件会创建多个具有相似模式的目标。例如，`@nx/cy
 
 ## 案例
 
-基于xx框架，xx插件
+创建一个包含 `pnpm` 和 `apps` 预设的 Nx 工作区：
+
+```bash
+$ npx create-nx-workspace@latest --packageManager=pnpm --preset=apps
+```
+
+用 `@nx/nuxt` 生成 nuxt4 项目：
+
+```bash
+$ pnpm add -D @nx/nuxt @nx/vite @nx/playwright @nx/cypress @nx/eslint @nx/js @nx/vitest @nx/vue nuxt@latest -w
+$ npx nx g @nx/nuxt:application apps/euqi_app --name=euqi_app --linter=eslint --e2eTestRunner=playwright --style=scss --unitTestRunner=vitest --useAppDir=true --useProjectJson=true
+```
+
+生成项目后 `nx.json` 文件将如下所示：
+
+::: code-group
+
+```json [nx.json]
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json"
+    ],
+    "sharedGlobals": []
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json",
+          "buildDepsName": "build-deps",
+          "watchDepsName": "watch-deps"
+        }
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/vitest",
+      "options": {
+        "testTargetName": "test",
+        "ciTargetName": "test-ci",
+        "testMode": "watch"
+      }
+    },
+    {
+      "plugin": "@nx/nuxt/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    }
+  ],
+  "targetDefaults": {
+    "test": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  }
+}
+```
+
+:::
 
 ## 参考
 
