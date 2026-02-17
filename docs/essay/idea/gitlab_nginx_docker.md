@@ -387,7 +387,7 @@ services:
       TZ: "${TZ:-Asia/Shanghai}"
       GITLAB_OMNIBUS_CONFIG: |
         # 关键：设为用户实际访问的域名
-        external_url 'https://gitlab.euqi.net'
+        external_url 'https://gitlab.example.net'
         gitlab_rails['gitlab_shell_ssh_port'] = ${GITLAB_SSH_PORT:-2424}
 
         # 调整端口设置（因为运行在反代后面）
