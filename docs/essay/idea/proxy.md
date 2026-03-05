@@ -279,6 +279,8 @@ SSL/TLS握手完成 (time_appconnect): 0.068099s
 
 这种服务没有使用Cloudflare，选择这种比较适合。
 
+也有其他选择参考：[美西目标域名推荐](https://github.com/XTLS/Xray-core/discussions/2256)
+
 > [!TIP]
 >
 > todo1: 使用 `./xray uuid` 命令生成一个UUID，将生成的UUID替换todo1。
