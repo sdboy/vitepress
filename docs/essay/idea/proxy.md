@@ -234,6 +234,51 @@ footer: true
 
 :::
 
+target最好选择一些你服务所在地区的大学的域名。
+
+测试脚本
+
+```bash
+$ curl -w "DNS解析时间 (time_namelookup): %{time_namelookup}s\nTCP连接时间 (time_connect): %{time_connect}s\nSSL/TLS握手完成 (time_appconnect): %{time_appconnect}s\n准备传输时间 (time_pretransfer): %{time_pretransfer}s\n首字节到达 (time_starttransfer): %{time_starttransfer}s\n总共耗时 (time_total): %{time_total}s\n" -o /dev/null -s -v https://www.lafilm.edu 2>&1 | grep -iE "(SSL connection|ALPN|time_[a-z]+|< server:|< cf-)"
+```
+
+输出结果示例1：
+
+```text
+* ALPN: curl offers h2,http/1.1
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / X25519 / id-ecPublicKey
+* ALPN: server accepted h2
+< cf-ray: 9d76b71c3b4fd183-LAX
+< cf-cache-status: HIT
+< server: cloudflare
+DNS解析时间 (time_namelookup): 0.010424s
+TCP连接时间 (time_connect): 0.012038s
+SSL/TLS握手完成 (time_appconnect): 0.079248s
+准备传输时间 (time_pretransfer): 0.079651s
+首字节到达 (time_starttransfer): 0.099113s
+总共耗时 (time_total): 0.127036s
+```
+
+要上面的结果，server: cloudflare，说明该服务使用了Cloudflare。最好不要选择这中。
+
+输出结果示例2：
+
+```text
+n" -o /dev/null -s -v https://www.ucla.edu 2>&1 | grep -iE "(SSL connection|ALPN|time_[a-z]+|< server:|< cf-)"
+* ALPN: curl offers h2,http/1.1
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256 / X25519 / RSASSA-PSS
+* ALPN: server accepted h2
+< server: Apache/2.4.66 () PHP/7.2.34
+DNS解析时间 (time_namelookup): 0.008179s
+TCP连接时间 (time_connect): 0.009324s
+SSL/TLS握手完成 (time_appconnect): 0.068099s
+准备传输时间 (time_pretransfer): 0.068695s
+首字节到达 (time_starttransfer): 0.073885s
+总共耗时 (time_total): 0.087795s
+```
+
+这种服务没有使用Cloudflare，选择这种比较适合。
+
 > [!TIP]
 >
 > todo1: 使用 `./xray uuid` 命令生成一个UUID，将生成的UUID替换todo1。
