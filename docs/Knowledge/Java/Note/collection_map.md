@@ -130,7 +130,6 @@ public int compareTo(E o);
 | :-- | :-- | :-- |
 | `PriorityQueue` | **堆（二叉树）** | 优先级队列 |
 | `ArrayDeque` | **数组** | 双端队列 |
-| `LinkedList` | **链表** | 可作队列 |
 
 ---
 
